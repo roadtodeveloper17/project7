@@ -81,6 +81,9 @@ def main():
       elif choice == 4:
         print("Exiting...")
         break
+    except ValueError:
+      print("Invalid action")
+      return
       
 if __name__ == "__main__":
   main()
