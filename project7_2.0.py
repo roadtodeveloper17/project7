@@ -77,23 +77,26 @@ def main():
         manager.view_users()
         print()
       elif choice == 3:
+        if not manager.users:
+          print("No users to delete")
+          continue
         manager.view_users()
         try:
           user_id = int(input("Enter id: "))
           if user_id < 1:
             print("Invalid id")
-            return
+            continue
           manager.delete_user(user_id)
           print()
         except ValueError:
           print("Invalid id")
-          return
+          continue
       elif choice == 4:
         print("Exiting...")
         break
     except ValueError:
       print("Invalid action")
-      return
+      continue
       
 if __name__ == "__main__":
   main()
