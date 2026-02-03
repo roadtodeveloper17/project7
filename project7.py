@@ -23,15 +23,17 @@ class UserManager:
       print("Invalid mail")
       return
 
-    user = User(new_id, name, email)
+    user = User(self.new_id, name, email)
     self.users.append(user)
-    new_id += 1
+    self.new_id += 1
+    print("User successfully added")
 
   def view_users(self):
-    if not users:
+    if not self.users:
       print("No users found")
       return
-
+    
+    print("List of users:")
     for user in self.users:
       print(user)
 
@@ -51,7 +53,7 @@ class UserManager:
         return
 
       self.users.remove(user)
-
+      print("User successfully deleted")
     except ValueError:
       print("Invalid choice")
       return
@@ -74,10 +76,13 @@ def main():
 
       if choice == 1:
         manager.add_user()
+        print()
       elif choice == 2:
         manager.view_users()
+        print()
       elif choice == 3:
-        manager.delte_user()
+        manager.delete_user()
+        print()
       elif choice == 4:
         print("Exiting...")
         break
